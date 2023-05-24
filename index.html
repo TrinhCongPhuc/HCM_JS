@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài thi số 1 Hackathon 24-05-2023</title>
+</head>
+
+<body>
+
+
+    <!-- <Script>
+
+BÀI 1
+        // Tạo một hàm để nhập mảng từ người dùng
+        function nhapMang() {
+            let mang = [];
+            let soPhanTu = prompt("Nhập số lượng phần tử trong mảng:");
+
+            for (let i = 0; i < soPhanTu; i++) {
+                let giaTri = prompt("Nhập giá trị phần tử thứ " + (i + 1) + ":");
+                mang.push(parseFloat(giaTri));
+            }
+
+            return mang;
+        }
+
+        // Nhập mảng thứ nhất
+        let mang1 = nhapMang();
+
+        // Nhập mảng thứ hai
+        let mang2 = nhapMang();
+
+        // Gộp hai mảng và sắp xếp mảng mới
+        let mangMoi = [...mang1, ...mang2].sort((a, b) => a - b);
+
+        // In mảng mới đã gộp và sắp xếp
+        console.log("Mảng mới đã gộp và sắp xếp:", mangMoi);
+    
+
+BÀI TẬP 2
+// Yêu cầu người dùng nhập số lượng phần tử của mảng
+var length = parseInt(prompt("Nhập số lượng phần tử của mảng:"));
+
+// Tạo một mảng rỗng để lưu trữ các phần tử
+var arr = [];
+
+// Yêu cầu người dùng nhập từng phần tử của mảng
+for (var i = 0; i < length; i++) {
+  var element = parseInt(prompt("Nhập phần tử thứ " + (i + 1) + ":"));
+  arr.push(element);
+}
+
+// Hiển thị mảng ra màn hình
+console.log("Mảng của bạn là: " + arr);
+
+// Yêu cầu người dùng nhập một số
+var number = parseInt(prompt("Nhập vào một số:"));
+
+// Tìm vị trí của hai phần tử có tổng bằng số đã nhập
+var index = arr.findIndex((value, i, array) => {
+  if (i < array.length - 1) {
+    return (value + array[i + 1]) === number;
+  }
+  return false;
+});
+
+// Kiểm tra kết quả và hiển thị thông báo tương ứng
+if (index !== -1) {
+  console.log("Số " + number + " bằng tổng của phần tử thứ " + index + " và phần tử thứ " + (index + 1) + " trong mảng.");
+} else {
+  console.log("Số " + number + " không bằng tổng của hai phần tử liên tiếp nào trong mảng.");
+}
+    
+    
+    
+    BÀI SỐ 3
+        // Tạo một mảng rỗng để lưu trữ các chuỗi người dùng nhập
+        var mangChuoi = [];
+
+        // Hàm để nhận input từ người dùng
+        function nhapMang() {
+            // Lặp cho đến khi người dùng nhập 'done'
+            while (true) {
+                // Nhập chuỗi từ người dùng
+                var chuoi = prompt('Nhập một chuỗi (hoặc "done" để hoàn tất):');
+
+                // Kiểm tra nếu người dùng nhập 'done', thoát khỏi vòng lặp
+                if (chuoi === 'done') {
+                    break;
+                }
+
+                // Thêm chuỗi vào mảng
+                mangChuoi.push(chuoi);
+            }
+
+            // Hiển thị mảng các chuỗi trên màn hình
+            hienThiMang();
+
+            // Kiểm tra và hiển thị các ký tự trùng nhau
+            kiemTraTrungNhau();
+        }
+
+        // Hàm để hiển thị mảng các chuỗi lên màn hình
+        function hienThiMang() {
+            // Kiểm tra nếu mảng rỗng
+            if (mangChuoi.length === 0) {
+                console.log('Mảng rỗng.');
+            } else {
+                console.log('Các chuỗi bạn đã nhập:');
+                for (var i = 0; i < mangChuoi.length; i++) {
+                    console.log(mangChuoi[i]);
+                }
+            }
+        }
+
+        // Hàm để kiểm tra và hiển thị các ký tự trùng nhau trong mảng các chuỗi
+        function kiemTraTrungNhau() {
+            var kyTuTrungNhau = [];
+
+            // Lặp qua từng ký tự trong chuỗi đầu tiên
+            for (var i = 0; i < mangChuoi[0].length; i++) {
+                var kyTu = mangChuoi[0][i];
+                var trungNhau = true;
+
+                // Lặp qua các chuỗi còn lại trong mảng
+                for (var j = 1; j < mangChuoi.length; j++) {
+                    // Nếu ký tự không xuất hiện trong chuỗi j, đánh dấu là không trùng nhau
+                    if (mangChuoi[j].indexOf(kyTu) === -1) {
+                        trungNhau = false;
+                        break;
+                    }
+                }
+
+                // Nếu tất cả các chuỗi đều chứa ký tự này, thêm vào mảng ký tự trùng nhau
+                if (trungNhau && kyTuTrungNhau.indexOf(kyTu) === -1) {
+                    kyTuTrungNhau.push(kyTu);
+                }
+            }
+
+            // Hiển thị các ký tự trùng nhau lên màn hình
+            if (kyTuTrungNhau.length === 0) {
+                console.log('Không có ký tự trùng nhau trong mảng các chuỗi.');
+            } else {
+                console.log('Các ký tự trùng nhau:');
+                console.log(kyTuTrungNhau.join(', '));
+            }
+        }
+
+        // Gọi hàm để bắt đầu nhập mảng từ người dùng
+        nhapMang();
+    </script> -->
+
+</body>
+
+</html>
